@@ -42,6 +42,7 @@ h1 {
   gap: 12px;
   height: auto;
   min-height: 80px;
+  border: 2px solid transparent;
 }
 
 .task:hover {
@@ -86,7 +87,7 @@ button:active {
 /* Inputs */
 input {
   border: none;
-  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
   width: 100%;
   border-radius: 6px;
   height: 24px;
@@ -96,4 +97,8 @@ input {
 #descField {
   height: 60px;
   margin-bottom: 12px;
+}
+
+.selected {
+  border: 2px solid #aeaebd;
 }
