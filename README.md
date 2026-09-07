@@ -16,3 +16,9 @@ This Repository is specifically for "Programacao Web II" subject/chair, a third 
 so far the only tools used are:
 
 - HTML, CSS and JavaScript
+
+## Note
+
+Any Suggestions to improve the code are welcome!
+
+**Also** feel free to use whatever project you find in thus repository and give it a **star**.
