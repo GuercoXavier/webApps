@@ -1,4 +1,4 @@
-## **TODOs:**
+# TODOs
 
 - [ ] Add scroll in tarefas container
 - [ ] Pick a better color palette
