@@ -70,22 +70,7 @@ function createTask(name, desc) {
 
     const task = new Task(id, name.value, desc.value);
 
-    const newTaskContainer = document.createElement("div");
-    newTaskContainer.classList.add("task");
-
-    const nameParagraph = document.createElement("p");
-    nameParagraph.id = "name";
-
-    const descParagraph = document.createElement("p"); // description
-    descParagraph.id = "description";
-
-    nameParagraph.innerText = `${task.getName()}`;
-    descParagraph.innerText = `${task.getDescription()}`;
-
-    newTaskContainer.appendChild(nameParagraph);
-    newTaskContainer.appendChild(descParagraph);
-
-    tasks_container.appendChild(newTaskContainer);
+    appendTasks(task.getName(), task.getDescription());
 
     tasks.push(task);
     saveTask();
@@ -117,6 +102,7 @@ function removeTask(inName) {
             // backup();
             saveTask();
             console.log(inName.value + " deleted");
+            reload();
         }
     }
     if (!found) alert("NOT FOUND!!!");
@@ -158,11 +144,53 @@ function recoverTask() {
 
     saveTask();
     showTasks();
+    reload();
 }
+
+function appendToScreen() {
+    const screenToAppend = document.getElementById("allTasks");
+    loadTask();
+
+    for (let i = 0; i < tasks.length; i++) {
+        appendTasks(tasks[i].name, tasks[i].description);
+        // screenToAppend.appendChild();
+    }
+}
+
+function appendTasks(name, desc) {
+    const newTaskContainer = document.createElement("div");
+    newTaskContainer.classList.add("task");
+
+    const nameParagraph = document.createElement("p");
+    nameParagraph.id = "name";
+
+    const descParagraph = document.createElement("p"); // description
+    descParagraph.id = "description";
+
+    nameParagraph.innerText = `${name}`;
+    descParagraph.innerText = `${desc}`;
+
+    newTaskContainer.appendChild(nameParagraph);
+    newTaskContainer.appendChild(descParagraph);
+
+    tasks_container.appendChild(newTaskContainer);
+}
+
+function reload() {
+    setTimeout(() => {
+        tasks_container.innerHTML = "";
+        appendToScreen();
+    }, 2000);
+    // tasks_container.innerHTML = "";
+    // appendToScreen();
+}
+
 
 // ####### ENTRY POINT (fake main)
 
 showTasks();
+appendToScreen();
+
 
 
 
